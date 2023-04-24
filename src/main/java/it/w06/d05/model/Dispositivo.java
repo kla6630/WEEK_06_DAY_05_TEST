@@ -9,6 +9,7 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -28,9 +29,13 @@ public class Dispositivo {
 	private Long id;
 
 	@Enumerated(EnumType.STRING)
+	@ManyToOne(optional=false)
 	private TipologiaDispositivo tipologia;
 
 	@Enumerated(EnumType.STRING)
 	private StatoDispositivo stato;
+	
+	@ManyToOne
+	private Utente utente;
 
 }
